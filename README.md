@@ -89,3 +89,88 @@ O const [dishes] é utilizado para declarar o estado local que armazena os dados
 # Menu dishes={dishes} /
 
 A linha Menu dishes={dishes} / está passando o estado dishes (que contém os pratos) como props para o componente Menu. Isso permite que o Menu tenha acesso aos dados do cardápio e possa renderizar cada prato dinamicamente, utilizando a iteração com map para exibir as informações de cada prato.
+
+# Exercício 12 React Components hands on
+
+# App.js:
+
+# Descrição do Arquivo:
+O arquivo App.js serve como ponto de entrada principal do aplicativo. Ele importa o componente Menu e fornece a lista de pratos (dishes) para esse componente. O componente App é responsável por gerenciar e passar os dados necessários para renderizar o cardápio no aplicativo.
+
+# O que foi pedido:
+
+Foi solicitado que o App.js exibisse o componente MenuComponent, passando a lista de pratos como props para ele. A tarefa envolveu passar esses dados para que o MenuComponent pudesse exibir a lista de pratos e permitir a seleção de um prato.
+
+# O que foi entregue:
+
+# Exibição do Componente Menu:
+
+O App.js importa o componente Menu e passa a lista de pratos (dishes) como uma propriedade (props) para o Menu. Isso permite que o MenuComponent tenha acesso aos dados e os exiba corretamente.
+
+# Declaração de dishes:
+
+A variável dishes é um array de objetos, cada um representando um prato com propriedades como id, name, description, price, category e image.
+
+# Estrutura Responsiva do Menu:
+
+O MenuComponent renderiza a lista de pratos de forma responsiva, aproveitando as funcionalidades do Bootstrap para garantir que a interface se adapte a diferentes tamanhos de tela.
+
+# MenuComponent.js:
+
+# Descrição do Arquivo:
+O arquivo MenuComponent.js contém o componente Menu, que exibe a lista de pratos e permite a seleção de um prato. Quando um prato é selecionado, os detalhes do prato escolhido são exibidos utilizando o DishDetailComponent.
+
+# O que foi pedido:
+Foi solicitado que o MenuComponent exibisse a lista de pratos e substituísse o cartão do prato selecionado por um DishDetailComponent, mostrando informações detalhadas sobre o prato escolhido. A tarefa envolveu a utilização de useState para gerenciar o estado do prato selecionado e a integração do DishDetail.
+
+# O que foi entregue:
+
+# Criação do Componente Menu:
+
+O componente Menu recebe a lista de pratos via props e exibe cada prato em uma lista. Cada prato é exibido com uma imagem e nome, e, ao clicar em um prato, o estado selectedDish é atualizado para refletir o prato selecionado.
+
+# Gerenciamento do Estado de Seleção do Prato:
+
+Utilizando o hook useState, foi implementado o estado selectedDish para armazenar o prato selecionado. Quando um prato é clicado, a função onDishSelect é chamada, atualizando o estado com as informações do prato selecionado.
+
+# Integração com DishDetail:
+
+O componente DishDetail foi importado e usado para exibir os detalhes do prato selecionado. Quando um prato é selecionado, o selectedDish é passado como props para o componente DishDetail, que então exibe as informações detalhadas do prato.
+
+# Exibição Responsiva:
+
+O layout utiliza as classes do Bootstrap, onde os pratos são exibidos em uma grade (col-12 col-md-5 m-1). A exibição dos detalhes do prato selecionado ocorre ao lado da lista de pratos, em uma estrutura responsiva.
+
+# DishdetailComponent.js:
+
+# Descrição do Arquivo:
+
+O arquivo DishdetailComponent.js contém o componente DishDetail, que exibe os detalhes de um prato selecionado, incluindo nome, descrição, preço, categoria e imagem. Além disso, ele exibe a lista de comentários do prato, se houver. Esse componente é utilizado dentro do MenuComponent para exibir os detalhes do prato quando o usuário o seleciona.
+
+# O que foi pedido:
+
+Foi solicitado que o DishDetailComponent exibisse os detalhes de um prato e, opcionalmente, os comentários sobre ele. O layout deveria ser responsivo e exibir os detalhes do prato e os comentários lado a lado para telas médias e maiores, e empilhados para telas pequenas.
+
+# O que foi entregue:
+
+# Criação do Componente DishDetail:
+
+O componente DishDetail recebe como props o prato selecionado (dish) e seus comentários (comments).
+Se o prato for null, o componente retorna uma <div> vazia.
+
+# Renderização dos Detalhes do Prato:
+
+A função renderDish exibe as informações detalhadas do prato, incluindo a imagem, nome, descrição, preço e categoria. Essas informações são exibidas dentro de um cartão Bootstrap (Card).
+
+# Renderização dos Comentários:
+
+A função renderComments exibe uma lista de comentários associados ao prato. Se não houver comentários, o componente exibe uma <div> vazia.
+Os comentários são exibidos como uma lista não ordenada, onde cada comentário mostra o texto do comentário, o autor e a data.
+
+# Exibição Responsiva:
+
+O layout é estruturado de forma responsiva, com as classes do Bootstrap col-12 col-md-5 m-1 para garantir que os detalhes do prato e os comentários sejam exibidos corretamente em diferentes tamanhos de tela.
+
+# Tratamento de Caso Nulo:
+
+Caso o prato (dish) seja null, o componente retorna uma <div> vazia, garantindo que nada seja exibido quando não houver um prato selecionado.
